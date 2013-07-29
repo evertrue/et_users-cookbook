@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: users 
+# Cookbook Name:: et_users 
 # Resources:: manage
 #
 # Copyright 2011, Eric G. Wolfe
