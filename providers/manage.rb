@@ -74,10 +74,9 @@ action :create do
       # The user block will fail if the group does not yet exist.
       # See the -g option limitations in man 8 useradd for an explanation.
       # This should correct that without breaking functionality.
-      if u['gid'] and u['gid'].kind_of?(Numeric)
-        group u['username'] do
-          gid u['gid']
-        end
+      group u['username'] do
+        gid u['gid']
+        only_if { u['gid'] and u['gid'].kind_of?(Numeric) }
       end
 
       # Create user object.
