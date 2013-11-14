@@ -13,6 +13,9 @@ else # OS X `ls`
   colorflag="-G"
 fi
 
+# Always use color
+alias ls="ls ${colorflag}"
+
 # List dir contents aliases
 # ref: http://ss64.com/osx/ls.html
 # Long form, mark file types, file size, color

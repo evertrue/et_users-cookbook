@@ -37,6 +37,8 @@ SOLAR_CYAN=$(tput setaf 37)
 SOLAR_GREEN=$(tput setaf 64)
 SOLAR_WHITE=$(tput setaf 254)
 
+style_time="\[${RESET}\]"
+style_retcode="\[${RESET}${SOLAR_RED}\]"
 style_user="\[${RESET}${SOLAR_ORANGE}\]"
 style_host="\[${RESET}${SOLAR_YELLOW}\]"
 style_path="\[${RESET}${SOLAR_GREEN}\]"
@@ -126,6 +128,8 @@ prompt_git() {
 # PS1="\[\033]0;\w\007\]"
 # Build the prompt
 PS1="\n"                             # Newline
+PS1+="${style_time}\t "              # The time (e.g. 14:28:27)
+PS1+="${style_retcode}(\$?) "        # Last cmd return code
 PS1+="${style_user}\u"               # Username
 PS1+="${style_chars}@"               # @
 PS1+="${style_host}\h"               # Host
