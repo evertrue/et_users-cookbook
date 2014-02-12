@@ -155,6 +155,13 @@ action :create do
             source name
           end
         end
+
+        # Add directory for additional, non-Chef-managed dotfiles
+        directory "#{home_dir}/.extras.d" do
+          owner u['username']
+          group u['gid'] || u['username']
+          mode '0700'
+        end
       end
     end
   end
