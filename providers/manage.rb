@@ -104,15 +104,14 @@ action :create do
           mode "0700"
         end
 
-        if u['ssh_keys']
-          template "#{home_dir}/.ssh/authorized_keys" do
-            source "authorized_keys.erb"
-            cookbook new_resource.cookbook
-            owner u['username']
-            group u['gid'] || u['username']
-            mode "0600"
-            variables :ssh_keys => u['ssh_keys']
-          end
+        template "#{home_dir}/.ssh/authorized_keys" do
+          source 'authorized_keys.erb'
+          cookbook new_resource.cookbook
+          owner u['username']
+          group u['gid'] || u['username']
+          mode '0600'
+          variables ssh_keys: u['ssh_keys']
+          only_if { u['ssh_keys'] }
         end
 
         if u['ssh_private_key']
