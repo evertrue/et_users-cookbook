@@ -1,0 +1,14 @@
+{
+  "id": "jeff",
+  "ssh_keys": [
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDWFaS+41vUMTaKeDFYH8+HU9iP1UWHUQbaTISquwjulRJRuV3UfQ8qbKPQ3sdw8VORXlKCOX+n77YZirj1S5fmuQZBR914anakUFfadepi9n28wCckSDyxiBJNLfzSsJlZRfKmUbJounf9vXuv+gBEmJbxhb0l2FjchtDo1YrsJ1AYq3b5HYgd0FOWTjymc4XoDLkoW9lRtIYeQ3CFWMmg3TvN17swJihZ7dq3SdjB5BzkIIIflg7f0oAImLff/9QJcDdC5CsLKNst3OXw1XhI2okjirx3wCKXmTTDsVs8AkSpqE9gxG3A8kFNVN4mIK6g0V56lu7UV0NeZ2ZfjehB jeff@evertrue.com",
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwyFoIvTFlT1ODyExMwCfsq7/iweGb+VWDjeti4l5cA6ATVfvpp6+U49jNSa75U3xKarZHiISFkpRx7AjX16eEY5f7yy5E1ntoHf1T8jhqIQ8/FG2S2XYD8hfnGYLLavLWpm0nhGLOjHbDSfMtcFPsARhGwqK7fC2vSKWUykQGPrg2YkToIino31qAj826B4Z/4RzcjDIa7MUidC0tRVAdE8VUL+jOyvZaL0HNKUmua1SxxXJbSfCaioDUk2gyBxxQZqDfcYsR24GTNo77wmmsxgCLX0AZchTATNGnN76CxhH5ze+yQLX9NIgzw/O5vO0a45qtbu75hd3xuPXWtgah jeff@jeffbyrn.es"
+  ],
+  "groups": [
+    "sysadmin",
+    "evertrue"
+  ],
+  "uid": 6006,
+  "shell": "\/bin\/bash",
+  "comment": "Jeff Byrnes, set up by Chef"
+}

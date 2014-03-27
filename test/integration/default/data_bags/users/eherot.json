@@ -1,0 +1,11 @@
+{
+  "id": "eherot",
+  "ssh_keys": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDYlIGqnhpfi1HhzvBZrlSm4Fpc2RK9YRxZtKt7E1mZJFcEsZmt3vjuLqBSeYPF8z6Bj/XuCKrlLx0N88tjOsv6mEAvKG+472LMnlmkT7uB0m+WDhEUOyOAwVHipSOPZ+yRvQfyA9eqvgamiHj5JkumcEeMdoROrwqqzkgI3M1rZzE39gMSEYN2NC6F1aP5g2TXiqXHsSzsGbhY3K55cPFwquqwzCzmSGSU9aCbFzuLWVEQ54pKcWUcDkruhFN/YIvr7dWiKacBdUcGdhiA+49AkVyTGK0qkkvjzjmydvVOf220CDoNzHS207aVReMAO230E0nT5xQEZKFIiGAW+e7L eric.herot@Kats-MacBook-Pro.local",
+  "groups": [
+    "sysadmin",
+    "evertrue"
+  ],
+  "uid": 5004,
+  "shell": "\/bin\/bash",
+  "comment": "Eric Herot, set up by Chef"
+}
