@@ -102,6 +102,19 @@ action :create do
           mode '0700'
         end
 
+        vim_config = "#{home_dir}/.vim"
+        [
+          "#{vim_config}/backups",
+          "#{vim_config}/swaps",
+          "#{vim_config}/undo"
+        ].each do |dir|
+          directory dir do
+            owner u['username']
+            group u['gid'] || u['username']
+            recursive true
+          end
+        end
+
         template "#{home_dir}/.ssh/authorized_keys" do
           source 'authorized_keys.erb'
           cookbook new_resource.cookbook
