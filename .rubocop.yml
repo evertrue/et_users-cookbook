@@ -1,0 +1,12 @@
+Encoding:
+  Enabled: false
+
+LineLength:
+  Max: 1000
+
+# The default 10 lines limit is unrealistic.
+MethodLength:
+  Max: 50
+
+BlockNesting:
+  Max: 5
