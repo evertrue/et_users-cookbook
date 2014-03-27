@@ -28,15 +28,15 @@ def initialize(*args)
 end
 
 def chef_solo_search_installed?
-  klass = ::Search::const_get('Helper')
+  klass = ::Search.const_get('Helper')
   return klass.is_a?(Class)
 rescue NameError
   return false
 end
 
 action :remove do
-  if Chef::Config[:solo] and not chef_solo_search_installed?
-    Chef::Log.warn("This recipe uses search. Chef Solo does not support search unless you install the chef-solo-search cookbook.")
+  if Chef::Config[:solo] && !chef_solo_search_installed?
+    Chef::Log.warn('This recipe uses search. Chef Solo does not support search unless you install the chef-solo-search cookbook.')
   else
     search(new_resource.data_bag, "groups:#{new_resource.search_group} AND action:remove") do |rm_user|
       user rm_user['username'] ||= rm_user['id'] do
@@ -50,14 +50,14 @@ end
 action :create do
   security_group = Array.new
 
-  if Chef::Config[:solo] and not chef_solo_search_installed?
-    Chef::Log.warn("This recipe uses search. Chef Solo does not support search unless you install the chef-solo-search cookbook.")
+  if Chef::Config[:solo] && !chef_solo_search_installed?
+    Chef::Log.warn('This recipe uses search. Chef Solo does not support search unless you install the chef-solo-search cookbook.')
   else
     search(new_resource.data_bag, "groups:#{new_resource.search_group} AND NOT action:remove") do |u|
       u['username'] ||= u['id']
       security_group << u['username']
 
-      if node['apache'] and node['apache']['allowed_openids']
+      if node['apache'] && node['apache']['allowed_openids']
         Array(u['openid']).compact.each do |oid|
           node.default['apache']['allowed_openids'] << oid unless node['apache']['allowed_openids'].include?(oid)
         end
@@ -76,32 +76,30 @@ action :create do
       # This should correct that without breaking functionality.
       group u['username'] do
         gid u['gid']
-        only_if { u['gid'] and u['gid'].kind_of?(Numeric) }
+        only_if { u['gid'] && u['gid'].kind_of?(Numeric) }
       end
 
       # Create user object.
       # Do NOT try to manage null home directories.
       user u['username'] do
         uid u['uid']
-        if u['gid']
-          gid u['gid']
-        end
+        gid u['gid'] if u['gid']
         shell u['shell']
         comment u['comment']
         password u['password'] if u['password']
-        if home_dir == "/dev/null"
-          supports :manage_home => false
+        if home_dir == '/dev/null'
+          supports manage_home: false
         else
-          supports :manage_home => true
+          supports manage_home: true
         end
         home home_dir
       end
 
-      if home_dir != "/dev/null"
+      if home_dir != '/dev/null'
         directory "#{home_dir}/.ssh" do
           owner u['username']
           group u['gid'] || u['username']
-          mode "0700"
+          mode '0700'
         end
 
         template "#{home_dir}/.ssh/authorized_keys" do
@@ -115,42 +113,42 @@ action :create do
         end
 
         if u['ssh_private_key']
-          key_type = u['ssh_private_key'].include?("BEGIN RSA PRIVATE KEY") ? "rsa" : "dsa"
+          key_type = u['ssh_private_key'].include?('BEGIN RSA PRIVATE KEY') ? 'rsa' : 'dsa'
           template "#{home_dir}/.ssh/id_#{key_type}" do
-            source "private_key.erb"
+            source 'private_key.erb'
             cookbook new_resource.cookbook
             owner u['id']
             group u['gid'] || u['id']
-            mode "0400"
-            variables :private_key => u['ssh_private_key']
+            mode '0400'
+            variables private_key: u['ssh_private_key']
           end
         end
 
         if u['ssh_public_key']
-          key_type = u['ssh_public_key'].include?("ssh-rsa") ? "rsa" : "dsa"
+          key_type = u['ssh_public_key'].include?('ssh-rsa') ? 'rsa' : 'dsa'
           template "#{home_dir}/.ssh/id_#{key_type}.pub" do
-            source "public_key.pub.erb"
+            source 'public_key.pub.erb'
             cookbook new_resource.cookbook
             owner u['id']
             group u['gid'] || u['id']
-            mode "0400"
-            variables :public_key => u['ssh_public_key']
+            mode '0400'
+            variables public_key: u['ssh_public_key']
           end
         end
 
         # Customization: Add dotfiles
         [
-          ".bash_profile",
-          ".bash_prompt",
-          ".exports",
-          ".aliases",
-          ".functions"
+          '.bash_profile',
+          '.bash_prompt',
+          '.exports',
+          '.aliases',
+          '.functions'
         ].each do |name|
           cookbook_file "#{home_dir}/#{name}" do
             backup false
             owner u['username']
             group u['gid'] || u['username']
-            mode "0600"
+            mode '0600'
             source name
           end
         end
@@ -166,10 +164,9 @@ action :create do
   end
 
   group new_resource.group_name do
-    if new_resource.group_id
-      gid new_resource.group_id
-    end
+    gid     new_resource.group_id if new_resource.group_id
     members security_group
   end
+
   new_resource.updated_by_last_action(true)
 end

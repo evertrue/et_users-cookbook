@@ -1,12 +1,12 @@
-ohai "reload" do
+ohai 'reload' do
   action :nothing
-  plugin "passwd"
+  plugin 'passwd'
 end
 
-ruby_block "close_passwd_file" do
+ruby_block 'close_passwd_file' do
   block do
     Etc.endpwent
   end
   action :nothing
-  notifies :reload, "ohai[reload]", :immediately
+  notifies :reload, 'ohai[reload]', :immediately
 end

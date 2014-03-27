@@ -21,10 +21,10 @@
 # Searches data bag "users" for groups attribute "sysadmin".
 # Places returned users in Unix group "sysadmin" with GID 2300.
 
-include_recipe "et_users::reloadohai"
+include_recipe 'et_users::reloadohai'
 
-et_users_manage "sysadmin" do
+et_users_manage 'sysadmin' do
   group_id 2300
-  action [ :remove, :create ]
-  notifies :create, "ruby_block[close_passwd_file]", :immediately
+  action [:remove, :create]
+  notifies :create, 'ruby_block[close_passwd_file]', :immediately
 end

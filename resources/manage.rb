@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: et_users 
+# Cookbook Name:: et_users
 # Resources:: manage
 #
 # Copyright 2011, Eric G. Wolfe
@@ -25,11 +25,11 @@ actions :create, :remove
 # :group_name is the string name of the group to create, defaults to resource name
 # :group_id is the numeric id of the group to create
 # :cookbook is the name of the cookbook that the authorized_keys template should be found in
-attribute :data_bag, :kind_of => String, :default => "users"
-attribute :search_group, :kind_of => String, :name_attribute => true
-attribute :group_name, :kind_of => String, :name_attribute => true
-attribute :group_id, :kind_of => Integer, :required => true
-attribute :cookbook, :kind_of => String, :default => "et_users"
+attribute :data_bag,     kind_of: String,  default: 'users'
+attribute :search_group, kind_of: String,  name_attribute: true
+attribute :group_name,   kind_of: String,  name_attribute: true
+attribute :group_id,     kind_of: Integer, required: true
+attribute :cookbook,     kind_of: String,  default: 'et_users'
 
 def initialize(*args)
   super
