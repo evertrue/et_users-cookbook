@@ -1,3 +1,11 @@
+## 1.4.0 (2014-03-27)
+
+* Use Berkshelf 3
+* Add Test Kitchen config
+* Stub out beginnings of what's needed for testing (ChefSpec & ServerSpec)
+* Ensure `~/.vim/*` folders are created to play nicely w/ .vimrc installed by et_base cookbook
+* Rubocop & Foodcritic cleanup
+
 ## 1.3.0
 
 * Remove `rbenv` stuff
