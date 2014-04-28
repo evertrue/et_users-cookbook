@@ -1,6 +1,6 @@
-ohai 'reload' do
+ohai 'reload_current_user' do
   action :nothing
-  plugin 'passwd'
+  plugin 'current_user'
 end
 
 ruby_block 'close_passwd_file' do
@@ -8,5 +8,5 @@ ruby_block 'close_passwd_file' do
     Etc.endpwent
   end
   action :nothing
-  notifies :reload, 'ohai[reload]', :immediately
+  notifies :reload, 'ohai[reload_current_user]', :immediately
 end
