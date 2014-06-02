@@ -205,5 +205,5 @@ DEPENDENCIES
   foodcritic (~> 3.0)
   kitchen-vagrant (~> 0.14)
   rake
-  rubocop (~> 0.16)
+  rubocop (~> 0.23)
   test-kitchen (~> 1.1)
