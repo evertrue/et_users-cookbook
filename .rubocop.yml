@@ -10,3 +10,7 @@ MethodLength:
 
 BlockNesting:
   Max: 5
+
+# Lining up the attributes of some methods is advantageous for readability
+SingleSpaceBeforeFirstArg:
+  Enabled: false
