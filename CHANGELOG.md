@@ -1,4 +1,9 @@
-## 1.4.0 (2014-03-27)
+et_users cookbook CHANGELOG
+============================
+This file is used to list changes made in each version of the et_users cookbook.
+
+v1.4.0 (2014-03-27)
+------------------
 
 * Use Berkshelf 3
 * Add Test Kitchen config
@@ -6,17 +11,20 @@
 * Ensure `~/.vim/*` folders are created to play nicely w/ .vimrc installed by et_base cookbook
 * Rubocop & Foodcritic cleanup
 
-## 1.3.0
+v1.3.0 (2014-02-12)
+------------------
 
 * Remove `rbenv` stuff
 * Add `~/.extras.d` sourcing for flexible dotfiles mgmt outside of Chef
 
-## 1.2.0
+v1.2.0 (2014-02-12)
+------------------
 
 * Add `rbenv` EnvVar & init, wrapped in check for rbenv
 * Update Gemfile to enforce proper Berkshelf usage
 
-## 1.1.1
+v1.1.1 (2013-11-15)
+------------------
 
 * Introduce CHANGELOG
 * alias 'ls' so color is always used.
