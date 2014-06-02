@@ -2,6 +2,17 @@ et_users cookbook CHANGELOG
 ============================
 This file is used to list changes made in each version of the et_users cookbook.
 
+v1.4.2 (2014-06-02)
+-------------------
+
+* For real, use Berkshelf 3
+    - Didn't update the Gemfile last time
+* Pin chef-solo-search cookbook to known-good ref
+    - Avoid version insanity & bugs when this cookbook is used transitively
+* Update to Rubocop ~> 0.23 & adjust Rake tasks to keep working
+* Add Gemfile.lock to version control to avoid [this RubyGems 2.2.2 bug](https://github.com/rubygems/rubygems/issues/853)
+
+
 v1.4.1 (2014-04-28)
 ------------------
 
