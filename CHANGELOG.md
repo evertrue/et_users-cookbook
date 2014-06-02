@@ -2,6 +2,11 @@ et_users cookbook CHANGELOG
 ============================
 This file is used to list changes made in each version of the et_users cookbook.
 
+v1.4.1 (2014-04-28)
+------------------
+
+* Rename reload Ohai resource
+
 v1.4.0 (2014-03-27)
 ------------------
 
