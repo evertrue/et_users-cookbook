@@ -2,6 +2,12 @@ et_users cookbook CHANGELOG
 ============================
 This file is used to list changes made in each version of the et_users cookbook.
 
+v1.4.3 (2014-06-12)
+-------------------
+
+* Remove chef-solo-search as a dependency
+
+
 v1.4.2 (2014-06-02)
 -------------------
 
