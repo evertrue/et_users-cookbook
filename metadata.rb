@@ -5,5 +5,3 @@ license          'All rights reserved'
 description      'Installs/Configures et_users'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '1.4.2'
-
-depends 'chef-solo-search'
