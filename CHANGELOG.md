@@ -2,6 +2,11 @@ et_users cookbook CHANGELOG
 ============================
 This file is used to list changes made in each version of the et_users cookbook.
 
+v1.4.4 (2014-06-16)
+-------------------
+
+* Bump version to fix incorrectly generated Berksfile.lock which still contained chef-solo-search
+
 v1.4.3 (2014-06-12)
 -------------------
 
