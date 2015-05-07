@@ -15,12 +15,6 @@ end
 desc 'Run all style checks'
 task style: ['style:chef', 'style:ruby']
 
-require 'rspec/core/rake_task'
-desc 'Run ChefSpec unit tests'
-RSpec::Core::RakeTask.new(:unit) do |t|
-  t.rspec_opts = '--color --format progress'
-end
-
 require 'kitchen'
 namespace :integration do
   desc 'Run Test Kitchen with Vagrant'
@@ -58,7 +52,7 @@ namespace :integration do
 end
 
 desc 'Run all tests on Travis'
-task travis: ['style', 'unit', 'integration:cloud']
+task travis: ['style', 'integration:cloud']
 
 # Default
-task default: ['style', 'unit', 'integration:vagrant']
+task default: ['style', 'integration:vagrant']
