@@ -1,0 +1,26 @@
+---
+driver:
+  name: ec2
+  aws_access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
+  aws_secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
+  aws_ssh_key_id: <%= ENV['AWS_KEYPAIR_NAME'] %>
+  ssh_key: <%= ENV['EC2_SSH_KEY_PATH'] %>
+  region: us-east-1
+  availability_zone: us-east-1b
+  security_group_ids: ['ci-testing']
+  instance_type: c3.large
+  interface: public
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: ubuntu-14.04
+    driver:
+      image_id: ami-3234315a
+
+suites:
+  - name: default
+    run_list:
+      - recipe[et_users::default]
+      - recipe[et_users::root]
