@@ -76,7 +76,7 @@ action :create do
       # This should correct that without breaking functionality.
       group u['username'] do
         gid u['gid']
-        only_if { u['gid'] && u['gid'].kind_of?(Numeric) }
+        only_if { u['gid'] && u['gid'].is_a?(Numeric) }
       end
 
       # Create user object.
