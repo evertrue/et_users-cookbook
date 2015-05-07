@@ -2,6 +2,14 @@ et_users cookbook CHANGELOG
 ============================
 This file is used to list changes made in each version of the et_users cookbook.
 
+v1.5.0 (2015-05-07)
+-------------------
+
+* Add Gemfury API key to generated `.exports`
+    - Ensures all users can do `bundle install` properly for Ruby app deployments
+* Add Serverspec integration tests
+* Add cloud-based testing using Travis CI
+
 v1.4.4 (2014-06-16)
 -------------------
 
