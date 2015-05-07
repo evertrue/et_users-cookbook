@@ -17,3 +17,8 @@ export LESS_TERMCAP_md="$ORANGE"
 
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
+
+# Ensure that the deploy user can access Gemfury
+export BUNDLE_GEM__FURY__IO=<%= @gemfury_key %>
+export FURY_AUTH=<%= @gemfury_key %>
+export GEMSPEC_KEY=<%= @gemfury_key %>

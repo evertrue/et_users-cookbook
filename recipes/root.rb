@@ -13,10 +13,14 @@
   aliases
   bash_profile
   bash_prompt
-  exports
   functions
 ).each do |cbf|
   cookbook_file "/root/.#{cbf}" do
     mode 00644
   end
+end
+
+template '/root/.exports' do
+  mode '0644'
+  variables gemfury_key: ''
 end

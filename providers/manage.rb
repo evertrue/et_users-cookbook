@@ -153,7 +153,6 @@ action :create do
         [
           '.bash_profile',
           '.bash_prompt',
-          '.exports',
           '.aliases',
           '.functions'
         ].each do |name|
@@ -164,6 +163,13 @@ action :create do
             mode '0600'
             source name
           end
+        end
+
+        template "#{home_dir}/.exports" do
+          owner u['username']
+          group u['gid'] || u['username']
+          mode '0600'
+          variables gemfury_key: data_bag_item('secrets', 'api_keys')['gemfury']
         end
 
         # Add directory for additional, non-Chef-managed dotfiles

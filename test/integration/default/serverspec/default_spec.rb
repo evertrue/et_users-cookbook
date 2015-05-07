@@ -17,13 +17,22 @@ describe 'Users' do
       .aliases
       .bash_profile
       .bash_prompt
-      .exports
       .functions
     ).each do |dotfile|
       describe file "/home/#{username}/#{dotfile}" do
         it { is_expected.to be_file }
         it { is_expected.to be_owned_by username }
         it { is_expected.to be_mode '600' }
+      end
+    end
+
+    describe file "/home/#{username}/.exports" do
+      it { is_expected.to be_file }
+      it { is_expected.to be_owned_by username }
+      it { is_expected.to be_mode '600' }
+      describe '#content' do
+        subject { super().content }
+        it { is_expected.to include 'export BUNDLE_GEM__FURY__IO=aaaaaaaaaaaaaaaaaaaa' }
       end
     end
   end
