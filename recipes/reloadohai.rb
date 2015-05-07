@@ -1,3 +1,12 @@
+#
+# Cookbook Name:: et_users
+# Recipe:: reloadohai
+#
+# Copyright (C) 2013 EverTrue, Inc.
+#
+# All rights reserved - Do Not Redistribute
+#
+
 ohai 'reload_current_user' do
   action :nothing
   plugin 'current_user'

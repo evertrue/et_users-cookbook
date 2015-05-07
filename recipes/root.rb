@@ -1,3 +1,12 @@
+#
+# Cookbook Name:: et_users
+# Recipe:: root
+#
+# Copyright (C) 2013 EverTrue, Inc.
+#
+# All rights reserved - Do Not Redistribute
+#
+
 # This recipe simply sets up root's profile
 
 %w(
