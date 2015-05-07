@@ -1,5 +1,7 @@
 # et_users cookbook
 
+Cookbook to set up users for EverTrue.
+
 # Requirements
 
 # Usage
