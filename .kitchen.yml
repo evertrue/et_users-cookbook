@@ -12,3 +12,4 @@ suites:
   - name: default
     run_list:
       - recipe[et_users::default]
+      - recipe[et_users::root]
