@@ -45,9 +45,8 @@ describe 'Users' do
     functions
   ).each do |dotfile|
     describe file "/root/.#{dotfile}" do
-      owner 'root'
-      group 'root'
-      mode '644'
+      it { is_expected.to be_file }
+      it { is_expected.to be_mode '644' }
     end
   end
 end
