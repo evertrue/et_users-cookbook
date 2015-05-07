@@ -17,8 +17,6 @@
   functions
 ).each do |cbf|
   cookbook_file "/root/.#{cbf}" do
-    owner 'root'
-    group 'root'
     mode 00644
   end
 end
