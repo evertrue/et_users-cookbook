@@ -48,7 +48,7 @@ action :remove do
 end
 
 action :create do
-  security_group = Array.new
+  security_group = []
 
   if Chef::Config[:solo] && !chef_solo_search_installed?
     Chef::Log.warn('This recipe uses search. Chef Solo does not support search unless you install the chef-solo-search cookbook.')
