@@ -6,7 +6,7 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_a3e58ce98bf2_key -iv $encrypted_a3e58ce98bf2_iv
   -in secrets.tar.enc -out secrets.tar -d
 - tar xvf secrets.tar
-- mv .chef ~/.chef
+- mkdir .chef ~/.chef
 - mv .ssh/travis_ci_ec2.pem ~/.ssh/travis_ci_ec2.pem
 - mv .ssh/travis_github ~/.ssh/id_rsa
 - mv .ssh/trubot.pem ~/.chef/trubot.pem
