@@ -4,18 +4,10 @@ rvm:
 - 2.1
 before_install:
 - openssl aes-256-cbc -K $encrypted_a3e58ce98bf2_key -iv $encrypted_a3e58ce98bf2_iv
-  -in secrets.tar.enc -out secrets.tar -d
-- tar xvf secrets.tar
-- mkdir .chef ~/.chef
-- mv .ssh/travis_ci_ec2.pem ~/.ssh/travis_ci_ec2.pem
-- mv .ssh/travis_github ~/.ssh/id_rsa
-- mv .ssh/trubot.pem ~/.chef/trubot.pem
+  -in travis_ci_ec2.pem.enc -out ~/.ssh/travis_ci_ec2.pem -d
+- mkdir ~/.chef
 - echo 'node_name "trubot"' >> ~/.chef/knife.rb
-- echo 'client_key "~/.chef/trubot.pem"' >> ~/.chef/knife.rb
-- echo 'chef_server_url "https://api.opscode.com/organizations/evertrue"' >> ~/.chef/knife.rb
-- chmod 600 ~/.chef/knife.rb ~/.chef/trubot.pem
-- chmod 600 ~/.ssh/travis_ci_ec2.pem ~/.ssh/id_rsa
-- ssh-add -D
+- chmod 600 ~/.chef/knife.rb ~/.ssh/travis_ci_ec2.pem
 install:
 - bundle install --without vagrant
 - bundle exec berks install
@@ -26,3 +18,13 @@ after_script:
 notifications:
   slack:
     secure: L6rkaxJIbxBEU/9Kt2YGl58roU2ics1uN8F/KaGmf2JUt/N3v9b2u5fbAhOZctcSDELXRorrLKFdddI0WB+VmUBkkZEMXuSXDSHhr9jKRNUrVH/0a/MULTp2sEhI6dyyHdWJqaqWcHj7m0oze8k4y97WeE5Bx/+HBiE26JsTjiM=
+env:
+  global:
+  - secure: Yf7sRy/cr4tO5578/We3BPCbBDNbP57yGhivjgHu3Dd8gAP/SU1yVhlhZt60q0dtHAYZtR+qQCyppbYW884quACZHtjO0w+UPu6VX8nfpUxpiDYrbtCTXVOFdbCXXCmlDl7WX2d5554BvP7stG+569Bm/HZ9hSjaIl2DZWg5ugk=
+  - secure: LZpACNQ0iXaFBJpHcjbFgvi6QjC2uztKO4Y23MVucA4LnllIIjjlO6A737AgYdvI828ADzA4Byq0heSWD87W7O0dtPyYgFnUrO9CuGZ3Vlp6H8ocr94ul/QfczyCSOTk4plMUfh8BVZUqp7LKSRA6O1cuBjCPrtw9vi5nOAQJHM=
+  - secure: UrcClvEEZeTGC67CdUpZNnaFIFzEQAnjlM5RSfYP1hAr1eN5hOZNNHZj5g0QijgUdsLxr/UFP7Es9olnHHNZkmXdWphhUgbj0ciWQSZCxm98GhKoZSua5g4ReosouzWK3t7KfELljG4/buDIRqdpO87pobUqyecj9FtAkT1ZUwE=
+  - secure: btcCyO4A91E56UN0LvxPuOvp7SgghThQJig0/3tyvawc739SCTq+ZnEOdQN+dLmEAWwKybo196LKFSlMMf7WGeB92gHkkD+jAPOivTgqhNHkCcmM7iBzesooYNVV/K4B2UlJCrSLqu9U0bTGLfjYMg2HD1z/4uX8WjUYKdrEhJg=
+  - secure: fja6enQd4VBIT48xyMYjiihK062Fp0jFHI97gdoNL/Hf4hfzU1dTnL3OnBsfChjFQ84+uu01Yy+gtuki99JbakbduriMyZlm3PdzoiSxb74NVUAQteQSQMcQ4eifXCczB8n8uGQG/C4b4kSfYetFmE5ThZgZ+/bId3/J3HrJWnI=
+  - secure: KC5aWme4m8WobAmaFB2AkHMgGelwgDbrbG8BsJxKLrTQZVqDFwzybRVNaPMcTm5TTZ4Vqk11i2XT5h8C3lJB6Fz0BS2Qnt/7LsVrdMCLtUbXcC7VfG8Ohp0dPALkrkiiIyoKgCcbFAielChhCDjaPXz1dIPqDT+x7pTeC09z2UU=
+  - secure: PjuWo3fEnBHGqe5WjaFQCBEiFdtrnxcVdzUh4GNh3omD2YuGCdSUZ2KwSdyAy/lqPD6qWAUsNOWuLUR2bS/0IgMDiik1QfdGZB64yiGtyKixzc9KGYtUBX/u6zH57VrrOtE4DguriBvfy8Qlu4LFUUZVK4TWVnemVQS8RvASICw=
+  - secure: N6PN4y9PaSXqYuWYl+xPbZH7cdWSDs7wUodpUjMXLR27B6WM3gM49rkaalcznmBkgdY8VYBv4oYa2lqvj1chpOp5Nj8WJnub5e9byF3vD2I81UqV5dxNwCPSOVwvEKTIwr0ORFRdZxnwfqNoywF9iQF1Bzxvj0d1cLA68HSqHAg=
