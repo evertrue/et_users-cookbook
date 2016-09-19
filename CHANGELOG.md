@@ -2,6 +2,11 @@ et_users cookbook CHANGELOG
 ============================
 This file is used to list changes made in each version of the et_users cookbook.
 
+v1.5.1 (2015-09-19)
+-------------------
+
+* Switch to "manage_home" first class parameter for user resource
+
 v1.5.0 (2015-05-07)
 -------------------
 
