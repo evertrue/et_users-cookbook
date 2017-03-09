@@ -1,0 +1,14 @@
+{
+  "id": "deploy",
+  "ssh_keys": [],
+  "include_keys": [
+    "eherot",
+    "jeff"
+  ],
+  "groups": [
+    "evertrue"
+  ],
+  "uid": 5005,
+  "shell": "\/bin\/bash",
+  "comment": "Deploy, set up by Chef"
+}
