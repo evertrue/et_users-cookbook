@@ -53,7 +53,12 @@ action :create do
   if Chef::Config[:solo] && !chef_solo_search_installed?
     Chef::Log.warn('This recipe uses search. Chef Solo does not support search unless you install the chef-solo-search cookbook.')
   else
-    search(new_resource.data_bag, "groups:#{new_resource.search_group} AND NOT action:remove") do |u|
+    all_users = search(
+      new_resource.data_bag,
+      "groups:#{new_resource.search_group} AND NOT action:remove"
+    )
+
+    all_users.select { |u| u['groups'].include? new_resource.search_group }.each do |u|
       u['username'] ||= u['id']
       security_group << u['username']
 
@@ -111,14 +116,23 @@ action :create do
           end
         end
 
+        ssh_keys = u['ssh_keys'] || []
+
+        if u['include_keys']
+          include_keys_users = all_users.select do |u_obj|
+            u_obj['ssh_keys'] && u_obj['username'] != u['username']
+          end
+          ssh_keys += include_keys_users.inject([]) { |a, e| a + e['ssh_keys'] }
+        end
+
         template "#{home_dir}/.ssh/authorized_keys" do
           source 'authorized_keys.erb'
           cookbook new_resource.cookbook
           owner u['username']
           group u['gid'] || u['username']
           mode '0600'
-          variables ssh_keys: u['ssh_keys']
-          only_if { u['ssh_keys'] }
+          variables ssh_keys: ssh_keys
+          only_if { ssh_keys.any? }
         end
 
         if u['ssh_private_key']
