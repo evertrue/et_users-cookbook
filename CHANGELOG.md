@@ -2,6 +2,11 @@ et_users cookbook CHANGELOG
 ============================
 This file is used to list changes made in each version of the et_users cookbook.
 
+v2.0.0 (2017-03-09)
+-------------------
+
+* Add `include_keys` feature
+
 v1.5.1 (2015-09-19)
 -------------------
 
