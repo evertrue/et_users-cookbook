@@ -1,0 +1,13 @@
+{
+  "id": "removeduser",
+  "ssh_keys": [
+    "should_not_be_here"
+  ],
+  "groups": [
+    "evertrue"
+  ],
+  "uid": 5007,
+  "shell": "\/bin\/bash",
+  "comment": "Deploy, set up by Chef",
+  "action": "remove"
+}

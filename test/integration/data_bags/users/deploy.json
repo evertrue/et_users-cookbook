@@ -3,7 +3,8 @@
   "ssh_keys": [],
   "include_keys": [
     "eherot",
-    "jeff"
+    "jeff",
+    "removeduser"
   ],
   "groups": [
     "evertrue"

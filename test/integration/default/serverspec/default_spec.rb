@@ -57,6 +57,7 @@ describe 'Users' do
     keys_h.each do |_username, keys|
       keys.each { |key| it { is_expected.to have_authorized_key key } }
     end
+    it { is_expected.to_not have_authorized_key 'should_not_be_here' }
   end
 
   %w(
